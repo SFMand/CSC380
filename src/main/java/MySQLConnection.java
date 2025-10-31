@@ -9,14 +9,12 @@ public class MySQLConnection {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/stms",
                     "root", "");
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from team");
-            int code;
-            String title;
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM team");
             while (resultSet.next()) {
-                code = resultSet.getInt("TeamId");
-                title = resultSet.getString("tName").trim();
-                System.out.println("Team Id : " + code + " Team name : " + title);
-            }
+                String code = resultSet.getString("TeamId");
+                String title = resultSet.getString("tName").trim();
+                System.out.println("Team Id : " + code + " \nTeam name : " + title + "\n");
+            } 
             resultSet.close();
             statement.close();
             connection.close();
