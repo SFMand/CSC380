@@ -1,8 +1,19 @@
-## Getting Started
+## CONNECTION
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+https://www.geeksforgeeks.org/java-database-connectivity-with-mysql/##
 
-## Folder Structure
+## INSERT with GUI
+
+https://www.plus2net.com/java_tutorial/swing-mysql-data-insert.php
+
+https://www.tutussfunny.com/how-to-insert-data-into-java-mysql/
+
+## Dealing with FK
+
+https://1bestcsharp.blogspot.com/2015/02/java-how-to-bind-jcombobox-with-mysql.html
+
+https://www.tutussfunny.com/jcombo-box-search-using-java-mysql/
+
 
 The workspace contains two folders by default, where:
 
@@ -13,6 +24,3 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 
 > If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
