@@ -1,26 +1,33 @@
 package main.java;
+
 import java.sql.*;
 
 public class MySQLConnection {
-    public static void main(String[] args) throws Exception {
+    Connection connection;
 
-        Connection connection = null;
+    public MySQLConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/stms",
                     "root", "");
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void printTeams() {
+        try {
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM team");
+            ResultSet resultSet = statement
+                    .executeQuery("SELECT pName, tName FROM team, player WHERE Team_TeamId = TeamId");
             while (resultSet.next()) {
-                String code = resultSet.getString("TeamId");
-                String title = resultSet.getString("tName").trim();
-                System.out.println("Team Id : " + code + " \nTeam name : " + title + "\n");
-            } 
-            resultSet.close();
+                String name = resultSet.getString("pName");
+                String id = resultSet.getString("tName");
+                System.out.printf("Player Name: %20s\tTeam: %s\n", name, id);
+            }
             statement.close();
-            connection.close();
-        } catch (Exception exception) {
-            System.out.println(exception);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
