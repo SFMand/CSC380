@@ -14,7 +14,23 @@ public class DBConnection {
             e.printStackTrace();
         }
     }
+        public void printTeam(){
+            try{
+            Statement st = getConnection().createStatement();
+            ResultSet rs = st.executeQuery("select * from team");
+            System.out.println("Teams:");
+            while (rs.next()){
+                    System.out.println(rs.getString("tName"));
+                
+            }
 
+            st.close();
+        }
+    catch(Exception e){
+
+    }
+    
+    }
     public static Connection getConnection() {
         return new DBConnection().connection;
     }
